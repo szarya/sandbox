@@ -1,0 +1,26 @@
+apiVersion: apps/v1beta2
+kind: ReplicaSet
+metadata:
+  labels:
+    applicationName: test
+    name: test
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      applicationName: test
+  template:
+    metadata:
+      labels:
+        applicationName: test
+    spec:
+      containers:
+        - image: nginx
+          name: primary
+          ports:
+            - containerPort: 80
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
