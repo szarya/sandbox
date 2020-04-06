@@ -1,2 +1,3 @@
 #! /bin/bash
-helm upgrade --install  helm_test ./helm
+echo "Starting helm deploy"
+# helm upgrade --install  helm_test ./helm
