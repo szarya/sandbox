@@ -18,6 +18,7 @@ spec:
     metadata:
       labels:
         applicationName: {{ $key }}
+        min: {{ $val.min | quote }}
     spec:
       containers:
         - image: 'nginx'
