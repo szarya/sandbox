@@ -6,6 +6,7 @@ metadata:
   labels:
     applicationName: {{ $key }}
     var: {{ $val.max | quote }}
+    min: {{ $val.min | quote }}
   name: {{ $key }}
   namespace: default
 spec:
