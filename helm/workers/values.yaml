@@ -1,0 +1,16 @@
+workers:
+  queue1:
+    queueName: accountants
+    min: 1 
+    max: 5
+    sa: sa-accountants
+  queue2:
+    queueName: benefits  
+    min: 1 
+    max: 5 
+    sa: sa-benefits
+  queue3: 
+    queueName: calendars 
+    min: 1 
+    max: 5 
+    sa: sa-calendars

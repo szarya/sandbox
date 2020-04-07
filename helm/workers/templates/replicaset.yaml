@@ -1,0 +1,29 @@
+{{- range $key, $val := .Values.workers }}
+apiVersion: apps/v1beta2
+kind: ReplicaSet
+metadata:
+  labels:
+    applicationName: {{ $key }}
+    var: {{ $val.max }}
+  name: {{ $key }}
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      applicationName: {{ $key }}
+  template:
+    metadata:
+      labels:
+        applicationName: {{ $key }}
+    spec:
+      containers:
+        - image: 'nginx'
+          name: primary
+          ports:
+            - containerPort: 80
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+{{- end }}
