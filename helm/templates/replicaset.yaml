@@ -4,7 +4,7 @@ metadata:
   labels:
     applicationName: helm-test
   name: helm-test
-  namespace: {{ .Release.Namespace }}
+  namespace: default
 spec:
   replicas: 1
   selector:

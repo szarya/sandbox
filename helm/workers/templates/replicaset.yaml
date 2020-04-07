@@ -4,7 +4,7 @@ kind: ReplicaSet
 metadata:
   labels:
     applicationName: {{ $key }}
-    var: {{ $val.max }}
+    var: {{ $val.max | quote }}
   name: {{ $key }}
   namespace: default
 spec:
