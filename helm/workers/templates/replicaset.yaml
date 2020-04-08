@@ -41,7 +41,7 @@ spec:
     kind: Deployment
     name: {{ $key }}
   minReplicas: 2
-  maxReplicas: $val.max
+  maxReplicas: {{ $val.max }}
   metrics:
   - type: Resource
     resource:
