@@ -37,7 +37,7 @@ metadata:
   namespace: default
 spec:
   scaleTargetRef:
-    apiVersion: apps/v1
+    apiVersion: apps/v1beta2
     kind: Deployment
     name: {{ $key }}
   minReplicas: 2
