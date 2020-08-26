@@ -5,7 +5,7 @@ metadata:
     applicationName: test
     name: test
   annotations:
-    traffic.spinnaker.io/load-balancers: '["service web-stag-internal"]'
+    traffic.spinnaker.io/load-balancers: '["service test-internal"]'
   namespace: default
 spec:
   replicas: 1
