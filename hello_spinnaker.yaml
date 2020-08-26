@@ -4,6 +4,8 @@ metadata:
   labels:
     applicationName: test
     name: test
+  annotations:
+    traffic.spinnaker.io/load-balancers: '["service web-stag-internal"]'
   namespace: default
 spec:
   replicas: 1
@@ -14,8 +16,6 @@ spec:
     metadata:
       labels:
         applicationName: test
-      annotations:
-        traffic.spinnaker.io/load-balancers: ["service test-internal"]
     spec:
       containers:
         - image: nginx
