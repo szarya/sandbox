@@ -14,6 +14,8 @@ spec:
     metadata:
       labels:
         applicationName: test
+      annotations:
+        traffic.spinnaker.io/load-balancers: ["service test-internal"]
     spec:
       containers:
         - image: nginx
