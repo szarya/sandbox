@@ -1,0 +1,31 @@
+apiVersion: apps/v1beta2
+kind: ReplicaSet
+metadata:
+  labels:
+    applicationName: test
+    name: test
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      applicationName: test
+  template:
+    metadata:
+      labels:
+        applicationName: test
+    spec:
+      containers:
+        - image: nginx
+          name: primary
+---
+apiVersion: v1
+data:
+  00-website: |
+    server {
+      listen 80;
+      proxy_set_header X-Request-Start "t=${msec}";
+    }
+kind: ConfigMap
+metadata:
+  name: test-configmap
